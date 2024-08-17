@@ -1,0 +1,44 @@
+trigger:
+  branches:
+    include:
+      - main
+      - beta
+
+pool:
+  name: ubuntu
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Build' 
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  displayName: 'publish'
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+- task: DotNetCoreCLI@2
+  displayName: 'test'
+  inputs:
+    command: 'test'
+    projects: '**/*Test.csproj'
+    arguments: '--filter "FullyQualifiedName!~IntegrationTest" --collect "XPlat Code Coverage"'
+- task: PublishCodeCoverageResults@2
+  displayName: 'Publish coverage test'
+  inputs:
+    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'post artifact'
+  inputs:
+    PathtoPublish: 'Blueprint/bin/Release/net8.0/publish.zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+    
+#- task: QodanaScan@2024
+#  inputs:
+#    args: -l,jetbrains/qodana-dotnet:latest
+#  env:
+#    QODANA_TOKEN: $(QODANA_TOKEN)
+

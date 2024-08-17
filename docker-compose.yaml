@@ -1,0 +1,52 @@
+version: '3'
+services:
+   
+    redis:
+        image: redis
+        ports:
+            - 6379:6379
+        volumes:
+            - ./data/redis-data:/data
+
+    postgres:
+        image: postgres
+        ports:
+            - 5432:5432
+        volumes:
+            - ./data/postgres-data:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=123456
+            - POSTGRES_DB=blueprint
+            
+    jaeger:
+        image: jaegertracing/all-in-one:latest
+        ports:
+            - 16686:16686
+            - 14268:14268
+            - 9411:9411
+            - 14250:14250
+            - 6831:6831/udp
+            - 6832:6832/udp
+            - 5775:5775/udp
+        environment:
+            COLLECTOR_ZIPKIN_HTTP_PORT: 9411
+            COLLECTOR_GRPC_PORT: 14250
+            COLLECTOR_GRPC_TLS_PORT: 14250
+            COLLECTOR_HTTP_PORT: 14268
+            AGENT_GRPC_PORT: 14250
+            AGENT_HTTP_PORT: 14268
+            AGENT_REPORTING_HOST_PORT: 14268
+            STRATEGY: jaeger
+            LOG_LEVEL: debug
+        volumes:
+            - ./data/jaeger-data:/data
+        
+
+volumes:
+  zookeeper-data:  # Persistent volume for Zookeeper data
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./data/zookeeper-data  # Adjust path as needed
