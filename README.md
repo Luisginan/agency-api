@@ -7,33 +7,20 @@ TODO: Guide users through getting your code up and running on their own system. 
 * Software dependencies
     ### Install Docker
      - [Install Docker on Windows][dockerInstallationGuide]
-    ### Install Kafka, Redis, Mongo, Postgres in Docker
+    ### Install Redis Postgres in Docker
        docker-compose up -d
     ### Create Table
        execute file Table.sql in Postgres 
+    ### Swagger documentation (run the project and open the link in browser)
+       dotnet run
+       
 * Latest releases
 * API references
 
 # Build and Test
   - dotnet build
-  - dotnet test --collect "XPlat Code Coverage"
+  - dotnet test --filter "FullyQualifiedName!~IntegrationTest" --collect "XPlat Code Coverage"
   - Goto folder BlueprintTest\TestResults\{guid}\coverage.cobertura.xml
   - open terminal : dotnet tool install -g dotnet-reportgenerator-globaltool
   - open terminal : reportgenerator -reports:coverage.cobertura.xml -reporttypes:html -targetDir:.
   - open file index.html in browser
-
-
-# Structure Code
-
-
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
-
-
-
-[dockerInstallationGuide]: https://docs.docker.com/docker-for-windows/install/

@@ -42,11 +42,3 @@ services:
         volumes:
             - ./data/jaeger-data:/data
         
-
-volumes:
-  zookeeper-data:  # Persistent volume for Zookeeper data
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: ./data/zookeeper-data  # Adjust path as needed
