@@ -1,16 +1,22 @@
 ﻿using AgencyApi.TokenIssuanceModule.Models;
+using AgencyApi.TokenIssuanceModule.Repos;
+using Core.CExceptions;
 
 namespace AgencyApi.TokenIssuanceModule.Services;
 
-public class TokenIssuanceService : ITokenIssuanceService
+public class TokenIssuanceService(ITokenIssuanceRepository tokenIssuanceRepository) : ITokenIssuanceService
 {
     public TokenIssuance GetTokenIssuance(int id)
     {
-        throw new NotImplementedException();
+        var token = tokenIssuanceRepository.GetTokenIssuance(id);
+        if (token == null)
+            throw new ServiceException("Token not found");
+
+        return token;
     }
 
     public void AddTokenIssuance(TokenIssuance tokenIssuance)
     {
-        throw new NotImplementedException();
+        tokenIssuanceRepository.AddTokenIssuance(tokenIssuance);
     }
 }

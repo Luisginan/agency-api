@@ -55,6 +55,11 @@ public class AgencySettingRepository (INawaDaoRepository nawaDaoRepository, IQue
             new("agencyId", agencyId)
         });
 
+        if (maxAppointments == null)
+        {
+            throw new RepositoryException("Failed to get max appointments per day");
+        }
+        
         return (int)maxAppointments;
     }
 
@@ -66,6 +71,10 @@ public class AgencySettingRepository (INawaDaoRepository nawaDaoRepository, IQue
             new("date", date)
         });
 
+        if (isHoliday == null)
+        {
+            throw new RepositoryException("Failed to check if holiday");
+        }
         return (Int64)isHoliday > 0;
     }
 

@@ -119,7 +119,7 @@ public class AppointmentService (
         return appointmentRepository.GetAppointmentsByCustomer(customerId, date);
     }
 
-    public int GetCountOfAppointmentsOnDate(int agencyId, DateTime date)
+    public long GetCountOfAppointmentsOnDate(int agencyId, DateTime date)
     {
         var agency = agencyService.GetAgency(agencyId);
         if (agency == null)
@@ -134,6 +134,9 @@ public class AppointmentService (
     {
         var maxAppointments = agencySettingService.GetMaxAppointmentsPerDay(appointmentAgencyId);
         var countOfAppointments = GetCountOfAppointmentsOnDate(appointmentAgencyId, appointmentDate);
+        if (maxAppointments == 0)
+            return false;
+        
         return countOfAppointments >= maxAppointments;
     }
 }

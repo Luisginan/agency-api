@@ -10,5 +10,5 @@ public interface IAppointmentRepository
     Appointment? GetAppointment(int id);
     void DeleteAppointment(int id);
     List<Appointment> GetAppointmentsByCustomer(int customerId, DateTime date);
-    int GetCountOfAppointmentsOnDate(int agencyId, DateTime date);
+    long GetCountOfAppointmentsOnDate(int agencyId, DateTime date);
 }

@@ -521,6 +521,27 @@ public class AppointmentServiceTest
         // Assert
         Assert.True(result);
     }
+
+    [Fact]
+    public void IsFullTest_MaxAppointmentZero()
+    {
+        // Arrange
+        _appointmentRepository.Setup(x => x.GetCountOfAppointmentsOnDate(1, DateTime.Today)).Returns(10);
+        _agencySettingService.Setup(x => x.GetMaxAppointmentsPerDay(1)).Returns(0);
+        _agencyService.Setup(x => x.GetAgency(1)).Returns(new Agency
+        {
+            Id = 1,
+            Name = "Agency 1",
+            Address = "Address 1",
+            City = "City 1"
+        });
+        
+        // Act
+        var result = _appointmentService.IsFull(1, DateTime.Today);
+        
+        // Assert
+        Assert.False(result);
+    }
     
     [Fact]
     public void GetCountOfAppointmentsOnDateTest()

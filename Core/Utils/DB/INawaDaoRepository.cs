@@ -9,7 +9,7 @@ public interface INawaDaoRepository
     T? Get<T>(int key) where T : class, new();
     int ExecuteNonQuery(string cmdText, IEnumerable<FieldParameter> fieldParameter);
 
-    object ExecuteScalar(string cmdText, IEnumerable<FieldParameter> fieldParameter);
+    object? ExecuteScalar(string cmdText, IEnumerable<FieldParameter> fieldParameter);
 
     T? ExecuteRow<T>(string cmdText, IEnumerable<FieldParameter> fieldParameter) where T : class, new();
 

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AgencyApi.AgencyModule.Controllers;
 [Route("api/[controller]")]
 [ApiController]
+[Produces("application/json")]
 public class AgencyControllers(
     ICache cache, 
     ILogger<AgencyControllers> logger, 
@@ -18,6 +19,8 @@ public class AgencyControllers(
     protected override string CacheKeyRoot => "AgencyApi.AgencyModule.Controllers.AgencyController";
     
     [HttpGet]
+    [ProducesResponseType(typeof(AgencyResponseDto), 200)]
+    
     public async Task<IActionResult> GetAgency(int id)
     {
         var agency = await UseCacheAsync($"{CacheKeyRoot}.GetAgency.{id}", () =>

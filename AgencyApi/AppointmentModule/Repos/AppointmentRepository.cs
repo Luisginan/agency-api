@@ -85,7 +85,7 @@ public class AppointmentRepository (INawaDaoRepository nawaDaoRepository, IQuery
         return listAppointment;
     }
     
-    public int GetCountOfAppointmentsOnDate(int agencyId, DateTime date)
+    public long GetCountOfAppointmentsOnDate(int agencyId, DateTime date)
     {
         var countOfAppointments = NawaDao.ExecuteScalar("SELECT COUNT(*) FROM appointment WHERE agency_id = @agencyId AND date = @date", new List<FieldParameter>
         {
@@ -93,6 +93,10 @@ public class AppointmentRepository (INawaDaoRepository nawaDaoRepository, IQuery
             new("date", date)
         });
 
-        return (int)countOfAppointments;
+        if (countOfAppointments == null)
+        {
+            return 0;
+        }
+        return (long)countOfAppointments;
     }
 }

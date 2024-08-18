@@ -32,7 +32,7 @@ public class NawaDaoRepository : INawaDaoRepository, ILogDb
         return fieldParameter.Select(x => x.GetQueryParameter()).ToArray();
     }
 
-    public object ExecuteScalar(string cmdText, IEnumerable<FieldParameter>? fieldParameter = null)
+    public object? ExecuteScalar(string cmdText, IEnumerable<FieldParameter>? fieldParameter = null)
     {
         var parameters = ConvertParameters(fieldParameter);
         return NawaDAO.ExecuteScalar(cmdText, parameters, _nawaCon);

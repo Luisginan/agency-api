@@ -10,6 +10,6 @@ public interface IAppointmentService
     void DeleteAppointment(int id);
     Appointment? GetAppointment(int id);
     List<Appointment> GetAppointmentsByCustomer(int customerId, DateTime date);
-    int GetCountOfAppointmentsOnDate(int agencyId, DateTime date);
+    long GetCountOfAppointmentsOnDate(int agencyId, DateTime date);
     bool IsFull(int appointmentAgencyId, DateTime appointmentDate);
 }
