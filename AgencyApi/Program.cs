@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using AgencyApi.AgencyModule.Models;
-using AgencyApi.CustomerModule.MsgConsumer;
 using AgencyApi.AgencyModule.Repos;
 using AgencyApi.AgencyModule.Services;
 using AgencyApi.AppointmentModule.Models;

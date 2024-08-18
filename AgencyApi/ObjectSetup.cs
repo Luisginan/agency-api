@@ -105,7 +105,6 @@ public static class ObjectSetup
         SetupObjectSecretManager(builder, provider);
         SetupObjectCache(builder, provider);
         SetupObjectDatabase(builder, provider);
-        SetupObjectSurroundingApi(builder, provider);
         SetupObjectLogDb(builder, provider);
         SetupObjectMessaging(builder, provider);
         SetupObjectFileStorage(builder, provider);
@@ -202,23 +201,7 @@ public static class ObjectSetup
             throw new ConfigNotImplementedException(provider.LogDb, "LogDb");
         }
     }
-    private static void SetupObjectSurroundingApi(IHostApplicationBuilder builder, ProviderConfig provider)
-    {
-        if (provider.SurroundingApi == "") return;
-        
-        if (provider.SurroundingApi.Equals("real", StringComparison.CurrentCultureIgnoreCase))
-        {
-            builder.Services.AddTransient<IProductExternal, ProductExternal>();
-        }
-        else if (provider.SurroundingApi.Equals("mock", StringComparison.CurrentCultureIgnoreCase))
-        {
-            builder.Services.AddTransient<IProductExternal, ProductExternalMock>();
-        }
-        else
-        {
-            throw new ConfigNotImplementedException(provider.SurroundingApi, "SurroundingApi");
-        }
-    }
+   
     private static void SetupObjectDatabase(IHostApplicationBuilder builder, ProviderConfig provider)
     {
         if (provider.Database == "") return;
