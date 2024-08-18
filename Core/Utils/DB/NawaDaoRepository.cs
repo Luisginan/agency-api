@@ -217,11 +217,11 @@ public class NawaDaoRepository : INawaDaoRepository, ILogDb
         return NawaDAO.ExecuteNonQuery(query, parameters, _nawaCon);
     }
     
-    public long Insert2<T>(T model) where T : class, new()
+    public int Insert2<T>(T model) where T : class, new()
     {
         var query = GenerateInsertQuery(model);
         var parameters = GetInsertParameters(model);
-        return (long) NawaDAO.ExecuteScalar(query, parameters, _nawaCon);
+        return (int) NawaDAO.ExecuteScalar(query, parameters, _nawaCon);
     }
 
     public int Update<T>(T model, int key) where T : class, new()

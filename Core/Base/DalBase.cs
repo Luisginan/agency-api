@@ -21,7 +21,7 @@ public class DalBase<T> where T : class, new()
         NawaDao.Insert(model);
     }
     
-    protected long Insert2(T model)
+    protected int Insert2(T model)
     {
         return NawaDao.Insert2(model);
     }

@@ -1,7 +1,7 @@
-﻿using Agency.CustomerModule.Models;
-using Agency.CustomerModule.Repository;
-using Agency.CustomerModule.Services;
-using Agency.CustomerModule.Validators;
+﻿using AgencyApi.CustomerModule.Models;
+using AgencyApi.CustomerModule.Repository;
+using AgencyApi.CustomerModule.Services;
+using AgencyApi.CustomerModule.Validators;
 using Core.CExceptions;
 using Moq;
 

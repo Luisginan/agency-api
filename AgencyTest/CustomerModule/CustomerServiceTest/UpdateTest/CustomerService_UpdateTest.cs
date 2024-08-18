@@ -1,8 +1,8 @@
-﻿using Agency.CustomerModule.Models;
-using Agency.CustomerModule.Repository;
-using Agency.CustomerModule.Services;
+﻿using AgencyApi.CustomerModule.Models;
+using AgencyApi.CustomerModule.Repository;
+using AgencyApi.CustomerModule.Services;
 using Moq;
-using Agency.CustomerModule.Validators;
+using AgencyApi.CustomerModule.Validators;
 using Core.CExceptions;
 
 namespace AgencyTest.CustomerServiceTest.UpdateTest;

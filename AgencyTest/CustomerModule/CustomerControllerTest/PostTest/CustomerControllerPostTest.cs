@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Agency.CustomerModule.Controllers;
-using Agency.CustomerModule.DTO;
-using Agency.CustomerModule.Models;
-using Agency.CustomerModule.Services;
+using AgencyApi.CustomerModule.Controllers;
+using AgencyApi.CustomerModule.DTO;
+using AgencyApi.CustomerModule.Models;
+using AgencyApi.CustomerModule.Services;
 using Core.Utils.DB;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;

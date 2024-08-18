@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Agency.CustomerModule.Controllers;
-using Agency.CustomerModule.Models;
-using Agency.CustomerModule.Services;
+using AgencyApi.CustomerModule.Controllers;
+using AgencyApi.CustomerModule.Models;
+using AgencyApi.CustomerModule.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
-using Agency.CustomerModule.DTO;
+using AgencyApi.CustomerModule.DTO;
 using Core.Utils.DB;
 using ICache = Core.Utils.DB.ICache;
 using Newtonsoft.Json;

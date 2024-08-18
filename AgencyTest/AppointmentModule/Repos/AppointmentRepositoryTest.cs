@@ -1,5 +1,5 @@
-﻿using Agency.AppointmentModule.Models;
-using Agency.AppointmentModule.Repos;
+﻿using AgencyApi.AppointmentModule.Models;
+using AgencyApi.AppointmentModule.Repos;
 using Core.Utils.DB;
 
 namespace AgencyTest.AppointmentModule.Repos;

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 namespace Core.Systems;
 
 [ExcludeFromCodeCoverage]
-public abstract class ResponseFilterAttribute : ActionFilterAttribute, IExceptionFilter
+public  class ResponseFilterAttribute : ActionFilterAttribute, IExceptionFilter
 {
     private readonly ActivitySource _activitySource = new("api");
 

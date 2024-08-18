@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Agency\Agency.csproj" />
+    <ProjectReference Include="..\AgencyApi\AgencyApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>

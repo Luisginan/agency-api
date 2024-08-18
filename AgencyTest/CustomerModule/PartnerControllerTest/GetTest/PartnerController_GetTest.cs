@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using Core.Utils.DB;
 using ICache = Core.Utils.DB.ICache;
-using Agency.CustomerModule.Controllers;
+using AgencyApi.CustomerModule.Controllers;
 using Core.Base;
 using Microsoft.AspNetCore.Http;
 

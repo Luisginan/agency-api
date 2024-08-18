@@ -1,6 +1,6 @@
 using System.Data;
-using Agency.CustomerModule.Models;
-using Agency.CustomerModule.Repository;
+using AgencyApi.CustomerModule.Models;
+using AgencyApi.CustomerModule.Repository;
 using Bogus;
 using Core.Config;
 using Core.Utils.DB;
