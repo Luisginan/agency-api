@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using AgencyApi.AgencyModule.Models;
 using AgencyApi.CustomerModule.MsgConsumer;
 using AgencyApi.AgencyModule.Repos;
 using AgencyApi.AgencyModule.Services;
@@ -26,12 +27,12 @@ internal static class Program
         builder.SetupServiceSystem(queryLocation:"./Queries/blueprint.json");
         builder.SetupThirdPartyObjectByConfig();
 
-        builder.Services.AddAutoMapper(typeof(CustomerMapper));
+        builder.Services.AddAutoMapper(typeof(CustomerMapper), typeof(AppointmentMapper), typeof(AgencyMapper));
+        
         builder.Services.AddTransient<ICustomerService, CustomerService>();
         builder.Services.AddTransient<ICustomerRuler, CustomerRuler>();
         builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
         
-        builder.Services.AddAutoMapper(typeof(AppointmentMapper));
         builder.Services.AddTransient<IAppointmentService, AppointmentService>();
         builder.Services.AddTransient<IAppointmentRepository, AppointmentRepository>();
         
